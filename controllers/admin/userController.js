@@ -1,5 +1,6 @@
 const { User, KycDocument, DepositRequest, WalletTransaction, WithdrawalMethod } = require("../../models");
 const bcrypt = require("bcrypt");
+const { Op } = require("sequelize");
 const { resSuccess, resError } = require("../../utils/responseUtil");
 
 // Create a new user
@@ -44,6 +45,11 @@ const getAllUsers = async (req, res) => {
     const offset = (page - 1) * limit;
 
     const { count, rows } = await User.findAndCountAll({
+      where: {
+        id: {
+          [Op.ne]: 1,
+        },
+      },
       offset: parseInt(offset),
       limit: parseInt(limit),
       order: [["created_at", "DESC"]],

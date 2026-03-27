@@ -5,10 +5,35 @@ const { resSuccess, resError } = require("../../utils/responseUtil");
 // Get Admin Dashboard Stats
 const getDashboardStats = async (req, res) => {
   try {
+    // Exclude superadmin
+    const excludeSuperAdmin = {
+      id: {
+        [Op.ne]: 1,
+      },
+    };
+
     // Users
-    const totalUsers = await User.count();
-    const totalClients = await User.count({ where: { role: "client" } });
-    const verifiedEmails = await User.count({ where: { email_verified: true } });
+    const totalUsers = await User.count({
+      where: excludeSuperAdmin,
+    });
+
+    const totalClients = await User.count({
+      where: {
+        role: "client",
+        id: {
+          [Op.ne]: 1,
+        },
+      },
+    });
+
+    const verifiedEmails = await User.count({
+      where: {
+        email_verified: true,
+        id: {
+          [Op.ne]: 1,
+        },
+      },
+    });
 
     // Deposits
     const totalDeposits = await DepositRequest.count();
