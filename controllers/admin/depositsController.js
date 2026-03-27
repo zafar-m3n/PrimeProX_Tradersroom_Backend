@@ -139,7 +139,7 @@ const updateDepositMethod = async (req, res) => {
           account_number: req.body.account_number,
           ifsc_code: req.body.ifsc_code,
         },
-        { where: { method_id: id } }
+        { where: { method_id: id } },
       );
     } else if (method.type === "crypto") {
       await DepositMethodCryptoDetail.update(
@@ -149,7 +149,7 @@ const updateDepositMethod = async (req, res) => {
           qr_code_path: req.files?.qr_code?.[0]?.path,
           logo_path: req.files?.logo?.[0]?.path,
         },
-        { where: { method_id: id } }
+        { where: { method_id: id } },
       );
     } else if (method.type === "other") {
       await DepositMethodOtherDetail.update(
@@ -158,7 +158,7 @@ const updateDepositMethod = async (req, res) => {
           logo_path: req.files?.logo?.[0]?.path,
           notes: req.body.notes,
         },
-        { where: { method_id: id } }
+        { where: { method_id: id } },
       );
     }
 
@@ -216,12 +216,12 @@ const approveDepositRequest = async (req, res) => {
       description: "Deposit approved by admin",
     });
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${depositRequest.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -229,10 +229,10 @@ const approveDepositRequest = async (req, res) => {
           Your wallet balance has been updated accordingly.
         </p>
         <p style="font-size: 15px; line-height: 1.6;">
-          Thank you for choosing Predicta Traders. We look forward to supporting your trading journey.
+          Thank you for choosing PrimeProX. We look forward to supporting your trading journey.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;
@@ -267,12 +267,12 @@ const rejectDepositRequest = async (req, res) => {
     depositRequest.admin_note = admin_note || "Rejected by admin";
     await depositRequest.save();
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${depositRequest.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -285,7 +285,7 @@ const rejectDepositRequest = async (req, res) => {
           If you have any questions or need further clarification, please contact our support team.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;

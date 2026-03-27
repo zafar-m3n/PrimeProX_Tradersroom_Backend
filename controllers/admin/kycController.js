@@ -57,7 +57,7 @@ const approveKycDocument = async (req, res) => {
     kycDoc.verified_at = new Date();
     await kycDoc.save();
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
     const documentTypeMap = {
       id_card: "Identity Card",
       drivers_license: "Driver’s License",
@@ -68,17 +68,17 @@ const approveKycDocument = async (req, res) => {
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${kycDoc.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
           We are pleased to inform you that your ${documentTypeLabel} has been <strong>approved</strong>.
         </p>
         <p style="font-size: 15px; line-height: 1.6;">
-          Your account is now fully verified, and you can enjoy uninterrupted access to all features of Predicta Traders.
+          Your account is now fully verified, and you can enjoy uninterrupted access to all features of PrimeProX.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;
@@ -114,7 +114,7 @@ const rejectKycDocument = async (req, res) => {
     kycDoc.verified_at = new Date();
     await kycDoc.save();
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
     const documentTypeMap = {
       id_card: "Identity Card",
       drivers_license: "Driver’s License",
@@ -125,7 +125,7 @@ const rejectKycDocument = async (req, res) => {
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${kycDoc.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -135,10 +135,10 @@ const rejectKycDocument = async (req, res) => {
           <strong>Reason:</strong> ${kycDoc.admin_note}
         </p>
         <p style="font-size: 15px; line-height: 1.6;">
-          Please review your document and resubmit it to complete your verification with Predicta Traders.
+          Please review your document and resubmit it to complete your verification with PrimeProX.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;

@@ -59,12 +59,12 @@ const createDepositRequest = async (req, res) => {
 
     const user = await User.findByPk(userId);
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${user.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -74,10 +74,10 @@ const createDepositRequest = async (req, res) => {
           Our review team will verify your deposit and update your wallet balance as soon as possible. You will be notified once it's processed.
         </p>
         <p style="font-size: 15px; line-height: 1.6;">
-          Thank you for choosing Predicta Traders. If you have any questions, feel free to contact our support team.
+          Thank you for choosing PrimeProX. If you have any questions, feel free to contact our support team.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;

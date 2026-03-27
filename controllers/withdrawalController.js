@@ -45,11 +45,11 @@ const createWithdrawalRequest = async (req, res) => {
       status: "pending",
     });
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${method.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -59,7 +59,7 @@ const createWithdrawalRequest = async (req, res) => {
           Our team will review and process your request as soon as possible. You will receive a notification once it is approved or if any additional information is required.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;
@@ -86,7 +86,7 @@ const getWithdrawalEligibility = async (req, res) => {
     });
 
     const hasIdDoc = approvedKycDocs.some(
-      (doc) => doc.document_type === "id_card" || doc.document_type === "drivers_license"
+      (doc) => doc.document_type === "id_card" || doc.document_type === "drivers_license",
     );
 
     const hasUtilityBill = approvedKycDocs.some((doc) => doc.document_type === "utility_bill");

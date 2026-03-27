@@ -61,12 +61,12 @@ const approveWithdrawalRequest = async (req, res) => {
       description: "Withdrawal approved by admin",
     });
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${withdrawalRequest.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -76,7 +76,7 @@ const approveWithdrawalRequest = async (req, res) => {
           The funds will be processed and transferred to your selected method shortly.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;
@@ -111,12 +111,12 @@ const rejectWithdrawalRequest = async (req, res) => {
     withdrawalRequest.admin_note = admin_note || "Rejected by admin";
     await withdrawalRequest.save();
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${withdrawalRequest.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -129,7 +129,7 @@ const rejectWithdrawalRequest = async (req, res) => {
           If you have any questions or require further assistance, please feel free to contact our support team.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Team
+          — The PrimeProX Team
         </p>
       </div>
     `;

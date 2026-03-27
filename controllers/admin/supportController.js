@@ -86,22 +86,22 @@ const sendMessageToTicket = async (req, res) => {
       attachment_path: attachmentPath,
     });
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${ticket.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
           You have received a new reply to your support ticket: <strong>${ticket.subject}</strong>.
         </p>
         <p style="font-size: 15px; line-height: 1.6;">
-          Please log in to your Predicta Traders account to view the full response and continue the conversation.
+          Please log in to your PrimeProX account to view the full response and continue the conversation.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Support Team
+          — The PrimeProX Support Team
         </p>
       </div>
     `;
@@ -135,12 +135,12 @@ const closeTicket = async (req, res) => {
     ticket.status = "closed";
     await ticket.save();
 
-    const logoUrl = "https://predicta.tfxe.live/assets/logo-Dxmm5dvk.png";
+    const logoUrl = "https://crm.primeprox.com/assets/logo-CotXpXqE.png";
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; color: #333; background-color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
         <div style="margin-bottom: 20px;">
-          <img src="${logoUrl}" alt="Predicta Traders Logo" style="max-width: 150px; height: auto;" />
+          <img src="${logoUrl}" alt="PrimeProX Logo" style="max-width: 150px; height: auto;" />
         </div>
         <h2 style="color: #0a0a0a;">Hello ${ticket.User.full_name},</h2>
         <p style="font-size: 15px; line-height: 1.6;">
@@ -150,7 +150,7 @@ const closeTicket = async (req, res) => {
           If you have any further questions or need assistance, feel free to open a new ticket anytime.
         </p>
         <p style="margin-top: 30px; font-size: 14px; color: #555;">
-          — The Predicta Traders Support Team
+          — The PrimeProX Support Team
         </p>
       </div>
     `;
