@@ -7,6 +7,7 @@ const {
   getUserById,
   updateUser,
   deleteUser,
+  approveUserAccount,
 } = require("../../controllers/admin/userController");
 
 const authenticate = require("../../middlewares/authMiddleware");
@@ -30,5 +31,8 @@ router.patch("/:id", updateUser);
 
 // Delete user
 router.delete("/:id", deleteUser);
+
+// Approve user account
+router.patch("/:id/approve", approveUserAccount);
 
 module.exports = router;

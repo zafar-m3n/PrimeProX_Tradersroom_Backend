@@ -154,10 +154,39 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const approveUserAccount = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findByPk(id);
+    if (!user) {
+      return resError(res, "User not found.", 404);
+    }
+
+    if (user.email_verified) {
+      return resError(res, "User is already approved.", 400);
+    }
+
+    user.email_verified = true;
+    user.verification_token = null;
+
+    await user.save();
+
+    resSuccess(res, {
+      message: "User account approved successfully.",
+      user,
+    });
+  } catch (error) {
+    console.error("Error in approveUserAccount:", error);
+    resError(res, error.message);
+  }
+};
+
 module.exports = {
   createUser,
   getAllUsers,
   getUserById,
   updateUser,
   deleteUser,
+  approveUserAccount,
 };
