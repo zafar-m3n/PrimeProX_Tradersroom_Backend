@@ -84,8 +84,35 @@ const getWithdrawalHistory = async (req, res) => {
   }
 };
 
+// === Get adjustment history ===
+const getAdjustmentHistory = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { page = 1, limit = 10 } = req.query;
+    const offset = (page - 1) * limit;
+
+    const { count, rows } = await WalletTransaction.findAndCountAll({
+      where: { user_id: userId, type: "adjustment" },
+      order: [["created_at", "DESC"]],
+      offset: parseInt(offset),
+      limit: parseInt(limit),
+    });
+
+    resSuccess(res, {
+      total: count,
+      page: parseInt(page),
+      totalPages: Math.ceil(count / limit),
+      adjustments: rows,
+    });
+  } catch (error) {
+    console.error("Error in getAdjustmentHistory:", error);
+    resError(res, error.message);
+  }
+};
+
 module.exports = {
   getWalletBalance,
   getDepositHistory,
   getWithdrawalHistory,
+  getAdjustmentHistory,
 };
